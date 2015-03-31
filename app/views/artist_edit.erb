@@ -1,17 +1,26 @@
-<div class="row">
+<% if flash[:notice] %>
+  <div id="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<div class="row" id="gig-to-edit">
 	<div class="small-12 columns">
-		Edit <%= @track.title %>
+		<h2 style="color:#000066;padding:2rem;text-align:center;font-weight:200;font-family:Helvetica Neue,Helvetica;">Edit event at <%= @gig.venue %> on <%= @gig.date %></h2>
+	</div>
+</div>
+<div class="row" id="gig-to-edit">
+	<div class="small-12 columns">
+		<p style="color:#000066;text-align:center;font-weight:100;font-family:Helvetica Neue,Helvetica;">Please fill out all fields in the form to update your event.</p>
 	</div>
 </div>
 
 <div class="row">
 	<div class="small-12 columns">
-		<div id='track-edit'>
-			<form action="/artist_edit/<%= @track.id %>" method="post" enctype="multipart/form-data" name="track" id="new-track">
-				Title: <input type="text" name="title" autocomplete="off">
-				Select track to upload:
-				<input type="file" name="tune" id="fileToUpload">
-		    <input type="submit" value="Save changes" name="submit" onclick="spinner()" id="trackuploading">
+		<div id="new-gig">
+			<form action="/artist/edit/gig/<%= @gig.id %>" method="post" id="edit-gig" style="text-align:center;font-family:Helvetica Neue,Helvetica;">
+				Date: <input type="date" required name="date" autocomplete="off"><br><br>
+				Venue: <input type="text" name="venue" autocomplete="off"><br><br>
+				URL: <input type="url" name="url" autocomplete="off"><br><br>
+				<input type="submit" value="Update Gig">
 			</form>
 		</div>
 	</div>

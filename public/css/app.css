@@ -1,38 +1,30 @@
 /* LANDING PAGE */
-
-#homepage {
-	height: 100%;
-	width: 100%;
+body {
+	background-image: url('/img/textured.jpg');
 }
 
-#title {
-	display: none;
+.background-img {
+	background-image: url('/img/joe_opaque.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+  background-position: center;
+  z-index: 10;
+  /*height: 100%;*/
 }
 
-#logo {
-	background-image: url('/img/joe_logo.jpg');
-	width: 12rem;
-	height: 12rem;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+.gig-background {
+	background-image: url('/img/joe_berlin.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+  background-position: center;
+  z-index: 10;
+  height: 100%;
 }
 
-#gig-link {
-	text-align: center;
-}
-
-li #track-list {
-	list-style-type: none;
-	text-align: center;
-	width: 100%;
-	height: 100%;
-	color: #00FF00;
-}
-
-ul {
-	margin-left: 0 !important;
-	line-height: 2.2 !important;
+@media (max-width: 320px) {
+	.gig-background {
+		margin-top: -1rem;
+	} 
 }
 
 li {
@@ -40,64 +32,91 @@ li {
 	text-align: center;
 }
 
-.play {
-	width: 0; 
-	height: 0; 
-	border-top: 18px solid transparent;
-	border-bottom: 18px solid transparent;
-	border-left: 18px solid #484848;
-	margin-top: 2.4rem;
-	margin-left: 0.8rem;
+ul {
+	margin-left: auto;
 }
 
-#play-one {
-	width: 0; 
-	height: 0; 
-	border-top: 18px solid transparent;
-	border-bottom: 18px solid transparent;
-	border-left: 18px solid #484848;
-	margin-top: 2.4rem;
-	margin-left: 0.8rem;
+#welcome {
+	margin-top: 2rem;
+	text-align: center;
 }
 
-#track-one {
-	background-image: url('/img/at-your-touch.png');	
-	width: 318px;
+#welcome p {
+	display: none;
+}
+
+#title {
+	display: none;
+}
+
+#logo {
+	background-image: url('/img/cutout_logo.png');
+	width: 12rem;
+	height: 12rem;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 20;
+}
+
+#gig-link {
+	text-align: center;
+	padding: 1rem;
+}
+
+.playButton {
+	background-image: url('/img/soundwave2_1.png');
+	width: 300px;
 	height: 112px;
 	border-top: 1px solid #484848;
+	margin-left: auto;
+	margin-right: auto;
+	color: #000040;
 }
 
-.onetoggle {
-	background-image: url('/img/at-your-touch-clicked.png') !important;
+.name {
+	line-height: 112px;
+	font-size: 26px;
+	font-weight: 100;
+	letter-spacing: 2px;
+	color: #FF8300;
 }
 
-#track-two {
-	background-image: url('/img/isolate.png');	
-	width: 318px;
+.pauseButton {
+	display: none;
+	background-image: url('/img/soundwave_paused.png');
+	width: 300px;
 	height: 112px;
 	border-top: 1px solid #484848;
-	border-bottom: 1px solid #484848;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: 200;
 }
 
-.twotoggle {
-	background-image: url('/img/isolate-clicked.png') !important;
+@media (max-width: 320px) {
+	.playButton {
+		margin-left: -2px;
+	} 
 }
 
-#track-three {
-	background-image: url('/img/tears.png');	
-	width: 318px;
-	height: 112px;
+@media (max-width: 320px) {
+	.pauseButton {
+		margin-left: -2px;
+	} 
 }
 
-.threetoggle {
-	background-image: url('/img/tears-clicked.png') !important;
-}
-
-/* GIGS PAGE */
+/*GIGS PAGE */
 
 #gig-header {
 	text-align: center;
 	margin-top: 1rem;
+}
+
+h2 {
+	font-weight: 100;
+	letter-spacing: 2px;
+	margin-top: 2rem;
+	color: #FF0000;
 }
 
 #gig-night {
@@ -107,15 +126,39 @@ li {
 	border: 2px solid #484848;
 	margin-top: 1rem;
 	padding: 0.5rem;
+	padding-top: 2.4rem;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	color: #FFFFFF;
 	background-image: url('/img/xoyo.jpg');
+	z-index: 20;
+	font-weight: 100;
+	opacity: 0.6;
 }
 
- a #venue {
-	color: #7df9ff;
+#gig-night:hover {
+	opacity: 0.9;
+	transition: opacity .25s ease-in-out;
+}
+
+@media (max-width: 320px) {
+	#gig-night {
+		opacity: 0.9;
+	} 
+}
+
+a#venue {
+	color: #6666b2;
+}
+
+a {
+	color: #000066;
+	font-weight: 200;
+}
+
+a:hover {
+  color: #6666b2;
 }
 
 /* ARTIST PAGE */
@@ -124,12 +167,15 @@ h4 {
 	text-align: center;
 	margin-top: 1rem;
 	margin-bottom: 0.6rem;
-	margin-left: 20%;
+	margin-left: auto;
+	margin-right: auto;
 	width: 60%;
 	background-color: #F80000;
 	color: #F8F8F8;
 	font-size: 1.4rem;
 	opacity: 0.9;
+	font-weight: 100;
+	letter-spacing: 2px;
 }
 
 @media (max-width: 320px) {
@@ -161,6 +207,45 @@ h4 {
 	}
 }
 
-#new-gig {
+#new-event {
 	margin-bottom: 1rem;
 }
+
+/* ARTIST ADMIN */
+
+.login-header {
+	text-align: center;
+}
+
+#sign-in {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#sign-up {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#links {
+	text-align: center;
+}
+
+/* EDIT A GIG PAGE */
+
+#gig-to-edit {
+	font-weight: 100;
+	letter-spacing: 2px;
+	margin-top: 2rem;
+	color: #FF0000;
+}
+
+#new-gig {
+	padding: 2rem;
+}
+
+
+
+

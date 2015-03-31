@@ -1,0 +1,24 @@
+<div class="gig-background">
+	<div class="row">
+		<div class="small-12 columns">
+			<h2 class="login-header">Please create a login<h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			<form action="/artist" method="post" id="sign-up">
+				<input name="name" type="text" placeholder="Name">
+				<input name="email" type="email" value="<%= @user.email %>" placeholder="Email">
+				<input name="password" type="password" placeholder="Password">
+				<input name="password_confirmation" type="password" placeholder="Password confirmation">
+				<input type="submit" value="Create Login">
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns" id="links">
+			<a href="/artist_session" id="signup">Go to login</a><br>
+			<a href="/" id="signup">Go to homepage</a>
+		</div>
+	</div>
+</div>

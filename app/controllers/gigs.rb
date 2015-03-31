@@ -1,6 +1,5 @@
 get '/gigs' do
 	@gigs = Gig.all
-	puts @gigs
 	@gigs.each do |gig|
 		gig.destroy if Date.parse(gig.date) < Date.today
 	end

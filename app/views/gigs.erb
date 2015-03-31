@@ -1,19 +1,27 @@
-<div class="row" id="gig-header">
-	<div class="small-12 columns">
-		<h2>Playing Out</h2>
+<div class="background-img gig-background">
+	<div class="row" id="gig-header">
+		<div class="small-12 columns">
+			<h2>Playing Out</h2>
+		</div>
 	</div>
-</div>
 
-<div class="row" id="gig-listings">
-	<div class="small-12 columns">
-		<ul>
-			<% @gigs.each do |gig| %>
-			<li id="gig-night">
-				<%= gig.date %><br>
-				<a id="venue" href="<%= gig.url %>"><%= gig.venue %></a>
-			</li>
-			<% end %>
-		</ul>
+	<div class="row" id="gig-header">
+		<div class="small-12 columns">
+			<a href="/">Back to Tracks</a>
+		</div>
+	</div>
+
+	<div class="row" id="gig-listings">
+		<div class="small-12 columns">
+			<ul>
+				<% @gigs.each do |gig| %>
+				<li id="gig-night">
+					<%= gig.date %><br>
+					<%= gig.venue %></a><br>
+					<a id="venue" href="<%= gig.url %>">Buy Ticket</a>
+				</li>
+				<% end %>
+			</ul>
+		</div>
 	</div>
 </div>
-	

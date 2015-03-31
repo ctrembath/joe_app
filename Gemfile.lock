@@ -111,6 +111,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
+  bcrypt-ruby
   capybara
   data_mapper
   database_cleaner

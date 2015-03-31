@@ -1,91 +1,98 @@
-<div class="row">
-	<div class="small-12 columns">
-		<div class="sk-spinner sk-spinner-wandering-cubes">
-		  <div class="sk-cube1"></div>
-		  <div class="sk-cube2"></div>
-		</div>
-	</div>
-</div>
-
-<div class="artist">
+<div class="background-img">
 	<div class="row">
-	  <div class="small-12 columns">
-			<div id="logo">
+		<div class="small-12 columns">
+			<div class="sk-spinner sk-spinner-wandering-cubes">
+			  <div class="sk-cube1"></div>
+			  <div class="sk-cube2"></div>
 			</div>
 		</div>
 	</div>
-
-	<div class="row">
-		<div class="small-12 columns">
-			<h4>Adding a track</h4>
-		</div>
-	</div>
-
-	<div class="row" id="track-form">
-		<div class="small-12 columns">
-			<div id="file-upload">
-				<form action="/" method="post" enctype="multipart/form-data" name="track" id="new-track">
-					Title: <input type="text" name="title" autocomplete="off">
-					Select track to upload:
-					<input type="file" name="tune" id="fileToUpload">
-			    <input type="submit" value="Add Track" name="submit" onclick="spinner()" id="trackuploading">
-				</form>
+	<div class="artist">
+		<div class="row">
+		  <div class="small-12 columns">
+				<div id="logo">
+				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="row">
-		<div class="small-12 columns">
-			<h4 class="artist-listing">All tracks</h4>
+		<div class="row" id="welcome">
+		  <div class="small-12 columns">
+			  <% if current_user %>
+			  	<p>Hey <%= @current_user.name %> Man</p>
+			  	<form method="post" action="/sessions">
+				  	<input type="hidden" name="_method" value="delete">
+				  	<input type="submit" value="Log out" class="button tiny">
+			  	</form>
+			  <% end %>
+		  </div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="small-6 columns">
-			<ul id="tracks-uploaded">
-				<% @tracks.each do |track| %>
-					<li id="artist-track-list"><h5><%= track.title %></h5>
-					<a href='/artist_edit/<%= track.id %>'>Edit</a></br>
-					<a href='/artist/<%= track.id %>'>Delete Track</a>
-					</li>
-				<% end %>
-			</ul>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="small-12 columns">
-			<h4>Adding a gig</h4>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="small-12 columns">
-			<div id="new-gig">
-				<form action="/gigs" method="post">
-					Date: <input type="date" name="date" autocomplete="off">
-					Venue: <input type="text" name="venue" autocomplete="off">
-					URL: <input type="url" name="url" autocomplete="off">
-					<input type="submit" value="Add Gig">
-				</form>
+		<div class="row">
+			<div class="small-12 columns">
+				<h4>Adding a track</h4>
 			</div>
 		</div>
-	</div>
-
-	<div class="row">
-		<div class="small-12 columns">
-			<h4 class="artist-listing">All gigs</h4>
+		<div class="row" id="track-form">
+			<div class="small-12 columns">
+				<div id="file-upload">
+					<form action="/" method="post" enctype="multipart/form-data" name="track" id="new-track">
+						Title: <input type="text" name="title" autocomplete="off">
+						Select track to upload:
+						<input type="file" name="tune" id="fileToUpload">
+				    <input type="submit" value="Add Track" name="submit" onclick="spinner()" id="trackuploading" class="button tiny">
+					</form>
+				</div>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="small-12 columns">
-			<ul>
-				<% @gigs.each do |gig| %>
-					<li id="artist-gig-list">
-						<p><strong><%= gig.venue %></strong>        <%= gig.date %></p>
-						<a href='/artist/gig/<%= gig.id %>'>Delete Gig</a>
-					</li>
-				<% end %>
-			</ul>
+		<div class="row">
+			<div class="small-12 columns">
+				<h4 class="artist-listing">All tracks</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-6 columns">
+				<ul id="tracks-uploaded">
+					<% @tracks.each do |track| %>
+						<li id="artist-track-list"><h5><%= track.title %></h5>
+						<a href='/artist/delete/<%= track.id %>'>Delete Track</a>
+						</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="small-12 columns">
+				<h4>Adding a gig</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<div>
+					<form action="/gigs" method="post" id="new-event">
+						Date: <input type="date" required name="date" autocomplete="off">
+						Venue: <input type="text" name="venue" autocomplete="off">
+						URL: <input type="url" name="url" autocomplete="off">
+						<input type="submit" value="Add Event" class="button tiny">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<h4 class="artist-listing">All gigs</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<ul>
+					<% @gigs.each do |gig| %>
+						<li id="artist-gig-list">
+							<p><strong><%= gig.venue %></strong>        <%= gig.date %></p>
+							<a href='/artist/edit/gig/<%= gig.id %>'>Edit Gig</a>
+							<a href='/artist/gig/<%= gig.id %>'>Delete Gig</a>
+						</li><br>
+					<% end %>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
