@@ -56,7 +56,7 @@ function whenPlaying(position) {
 };
 
 function playTune(position) { 
-	var track = trackArray[position];
+	var track = tracks[position];
 	track.play();
 	whenPlaying(position);
 };

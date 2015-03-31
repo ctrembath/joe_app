@@ -1,34 +1,32 @@
-
 <div class="background-img">
-	<div id="homepage">
-		<h1 id="title">Joe Hertz</h1>
-		<div class="row">
-		  <div class="small-12 columns" id="logo-div">
-				<div id="logo" onclick="loadTracks();">
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="small-12 columns" id="gig-link">
-				<a href="/gigs">Upcoming Events</a>
-			</div>
-		</div>
+<div id="homepage">
+    <h1 id="title">Joe Hertz</h1>
+    <div class="row">
+      <div class="small-12 columns" id="logo-div">
+            <div id="logo" onclick="loadTracks();">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns" id="gig-link">
+            <a href="/gigs">Upcoming Events</a>
+        </div>
+    </div>
 
-		<div class="row">
-		  <div class="small-12 columns">
-		  	<ul id="list">
-			  	<% @track_keys.each.with_index do |track, index| %>
-						<li class="track-list">
-							<audio preload="auto" type="audio/mp4" class="<%= track %>" onended="startNext(<%= index %>);" id="audiosrc">
-								<source src="https://s3.amazonaws.com/yo-man/<%= track %>" type="audio/mpeg">
-							</audio>
-							<div class="playButton name" onclick="playTune(<%= index %>);" id="<%= track %>"><%= track %></div>
-							<div class="pauseButton name" onclick="hitPause(<%= index %>);" id="Paused<%= track %>"><%= track %></div>
-						</li>
-					<% end %>
-				</ul>
-			</div>
-		</div>
-	</div>
+    <div class="row">
+      <div class="small-12 columns">
+          <ul id="list">
+              <% @track_keys.each.with_index do |track, index| %>
+                    <li class="track-list">
+                        <audio preload="auto" type="audio/mp4" class="<%= track %>" onended="startNext(<%= index %>);" id="audiosrc">
+                            <source src="https://s3.amazonaws.com/yo-man/<%= track %>" type="audio/mpeg">
+                        </audio>
+                        <div class="playButton name" onclick="playTune(<%= index %>);" id="<%= track %>"><%= track %></div>
+                        <div class="pauseButton name" onclick="hitPause(<%= index %>);" id="Paused<%= track %>"><%= track %></div>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
 </div>
-</body>
+</div>
