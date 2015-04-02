@@ -8,6 +8,7 @@ gem 'aws-s3'
 gem 'rack-flash3'
 gem 'pg'
 gem 'bcrypt-ruby'
+gem 'sinatra-flash'
 
 group :test do 
 	gem 'rspec'
