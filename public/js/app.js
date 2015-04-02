@@ -42,7 +42,11 @@ function loadTracks() {
 	for (i = 0; i < tracks.length; i++) {
 		tracks[i].load();
 		tracks[i].onloadeddata = function() {
+<<<<<<< HEAD
 			logger("loaded track");
+=======
+			alert("loaded track");
+>>>>>>> ba57ebbd60336528857e2ea361aba50f6d40f058
 		};
 	};
 };

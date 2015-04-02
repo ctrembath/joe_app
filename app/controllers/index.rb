@@ -10,7 +10,7 @@ post '/' do
 	bucket = 'yo-man'
 	title = params["title"]
 	tune = params["tune"][:tempfile]
-	@track = Track.new(:title => title, :tune => tune)
+	@track = Track.create(:title => title, :tune => tune)
 	if @track.save
 		save_file_to_aws(title, tune)
 		redirect '/', flash[:notice] = "Track added"
