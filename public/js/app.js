@@ -8,8 +8,13 @@ $(document).ready(function() {
 	    $(el).get(0).pause();
 	  });
 	});
-
+ 
+ $('.playbutton').click(loadTracks());
 });
+
+var logger = function(message) {
+	$('.console').append("<p>" + message.toString() + "</p>");
+}
 
 var tracks = document.getElementsByTagName('audio');
 var trackArray = Array.prototype.slice.call(tracks);
@@ -35,10 +40,10 @@ function isPlaying() {
 
 function loadTracks() {
 	for (i = 0; i < tracks.length; i++) {
-		tracks[0].load();
-		tracks[0].onloadeddata = function() {
-			alert("loaded track");
-		};
+		tracks[i].load();
+		tracks[i].onloadeddata = function() {
+
+			logger("loaded track");		};
 	};
 };
 
